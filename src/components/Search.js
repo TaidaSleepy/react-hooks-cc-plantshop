@@ -1,6 +1,12 @@
 import React from "react";
 
-function Search() {
+// Search is a simple presentational component that tells parent about input
+function Search({ onSearch }) {
+  // call this on every change to keep it simple and like the spec
+  function handleChange(e) {
+    onSearch(e.target.value);
+  }
+
   return (
     <div className="searchbar">
       <label htmlFor="search">Search Plants:</label>
@@ -8,7 +14,7 @@ function Search() {
         type="text"
         id="search"
         placeholder="Type a name to search..."
-        onChange={(e) => console.log("Searching...")}
+        onChange={handleChange}
       />
     </div>
   );

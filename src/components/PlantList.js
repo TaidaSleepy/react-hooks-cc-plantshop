@@ -1,9 +1,15 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList() {
+// PlantList receives the plants array (already filtered by PlantPage)
+function PlantList({ plants }) {
   return (
-    <ul className="cards">{/* render PlantCards components in here */}</ul>
+    <ul className="cards">
+      {plants.map((plant) => (
+        // PlantCard will render each plant item
+        <PlantCard key={plant.id} plant={plant} />
+      ))}
+    </ul>
   );
 }
 
